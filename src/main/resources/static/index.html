@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.8/css/mdb.min.css" rel="stylesheet">
+
+
+    <title>Strona Główna</title>
+</head>
+<body>
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>nazwa Wspolnoty</th>
+            <th>ulica</th>
+            <th>nr</th>
+            <th>ilosc mieszkan</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each= "association: ${associationHomes}">
+            <td th:text ="${association.nameAssocation}"></td>
+            <td th:text ="${association.getAdres()}"></td>
+
+            <td th:text ="${association.mieszkanie.size()}"></td>
+        </tr>
+
+        </tbody>
+
+
+    </table>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>numer mieszkania</th>
+            <th>powierzchnia</th>
+            <th>wspolnota</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each= "home: ${homes}">
+            <td th:text ="${home.getNumer()}"></td>
+            <td th:text ="${home.getPowierzchnia()}"></td>
+            <td th:text ="${home.getWspolnota()}"></td>
+            <td th:text ="${home.getMieszkancy()}"></td>
+
+        </tr>
+
+        </tbody>
+
+
+    </table>
+</div>
+
+
+</body>
+</html>
